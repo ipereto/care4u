@@ -26,3 +26,6 @@ Next for CARE4U is adding the function to detect decomposed food in order to pre
 1. App was built with [ionic framework](https://ionicframework.com/).
 2. CNN was built with [pytorch](https://pytorch.org/).
 3. Datasets were built with images found in [Google images](https://www.google.com.co/imghp?hl=en).
+
+## How to install
+- FLASK_ENV=development FLASK_APP=app.py flask run
