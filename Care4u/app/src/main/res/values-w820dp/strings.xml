@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Care4u</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_medical">Medical History</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in with FB</string>
+    <string name="action_sign_in_short">Sign in with FB</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="cholesterol">Cholesterol</string>
+    <string name="irritable_bowel_syndrome_ibs">Irritable bowel syndrome (IBS)</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="gastritis">Gastritis</string>
+    <string name="lactose_intolerant">Lactose intolerant</string>
+    <string name="hypertension">Hypertension</string>
+    <string name="default_img">Default Image</string>
+</resources>

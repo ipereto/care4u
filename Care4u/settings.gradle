@@ -1,0 +1,7 @@
+include ':app',
+        ':auth:app',
+        ':database:app',
+        ':firestore:app',
+        ':perf:app',
+        ':storage:app'
+rootProject.name='Care4u'
