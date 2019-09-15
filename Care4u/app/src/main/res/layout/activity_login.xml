@@ -29,8 +29,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="377dp"
-        android:layout_height="510dp"
+        android:layout_width="280dp"
+        android:layout_height="297dp"
         android:layout_marginStart="38dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="41dp"
@@ -38,10 +38,10 @@
         android:contentDescription="@string/default_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.76"
         app:srcCompat="@drawable/magnifier_food" />
 
     <ProgressBar
