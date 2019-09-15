@@ -3,6 +3,6 @@ package com.care4u.service;
 public class PredictProductServiceClient {
 
     public static APIService request() {
-        return RetrofitClient.getClient("http://192.168.1.1:5000/predict/").create(APIService.class);
+        return RetrofitClient.getClient("http://34.217.105.95:8080/predict/").create(APIService.class);
     }
 }

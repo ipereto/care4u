@@ -22,4 +22,6 @@
     <string name="hypertension">Hypertension</string>
     <string name="default_img">Default Image</string>
     <string name="introduction">Care4u identifies through the camera how healthy is the food you are about to eat regarding your current health condition that you already let us know in the app at the beginning in a form, this means it keeps the tracking for different kinds of nutrients, fat, cholesterol, and others of what you want to eat. In this way, in order to what might be a bad food for your health we can create an alert of the product.</string>
+    <string name="facebook_app_id">622242628181716</string>
+    <string name="fb_login_protocol_scheme">fb622242628181716</string>
 </resources>

@@ -20,10 +20,22 @@ import com.care4u.R;
 import com.care4u.data.model.ProductResponse;
 import com.care4u.service.APIService;
 import com.care4u.service.PredictProductServiceClient;
+import com.google.android.gms.tasks.OnCanceledListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 import okhttp3.MediaType;
@@ -41,7 +53,9 @@ public class HomeFragment extends Fragment {
     private TextView textView;
     private APIService apiService;
     private static final String TAG = "Home:Fragment";
-
+    private FirebaseAuth auth;
+    final List<String> diseasesNames = new ArrayList<>();
+    private Query query;
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -49,6 +63,33 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        auth = FirebaseAuth.getInstance();
+        if(auth.getCurrentUser() != null && auth.getCurrentUser().getDisplayName() != null
+                && textView != null) {
+            textView.setText(String.format("Welcome! %s", auth.getCurrentUser().getDisplayName()));
+        }
+        DocumentReference docRef = FirebaseFirestore.getInstance().document("care4u/user");
+        CollectionReference diseasesRef = docRef.collection("diseases");
+        query = diseasesRef.whereEqualTo("uid", "mau");
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot querySnapshot) {
+                for (QueryDocumentSnapshot snap : querySnapshot) {
+                    Log.d(TAG, snap.getId() + " => " + snap.getData());
+                    List<HashMap<String, Object>> diseasesList = (List<HashMap<String, Object>>) snap.getData().get("diseases");
+                    for (int i = 0; i < (diseasesList != null ? diseasesList.size() : 0); i++) {
+                        HashMap<String, Object> diseaseVar = diseasesList.get(i);
+                        String name = (String) diseaseVar.get("name");
+                        Boolean enable = (Boolean) diseaseVar.get("enable");
+                        if(enable) {
+                            diseasesNames.add(name);
+                        }
+
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -57,7 +98,6 @@ public class HomeFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         textView = root.findViewById(R.id.section_label);
-
         FloatingActionButton fabSos = root.findViewById(R.id.fabSos);
         fabSos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,13 +168,55 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void showResponse(String response) {
+    public void showResponse(final String response) {
         if(textView.getVisibility() == View.GONE) {
             textView.setVisibility(View.VISIBLE);
         }
-        String msg = "Probabilidad: "+ response.toUpperCase() + ".\nCon base a su historial medico, " +
-                "observamos que sufre de DIABETES, GASTRITIS.\nLe recomendamos NO CONSUMIR ESTE/ESTOS PRODUCTO/S, o consumirlo/s bajo su responsabilidad. Porque este alimento es una bebida muy ácida y el ph del estómago tiene que mantener su rango\n" +
-                "Care4u se activa en caso de una emergencia. Se sincronizará con las ambulancias mas cercanas o usuarios con carro que usen Care4u.";
+        diseasesNames.clear();
+        String msg = "Probability: "+ response.toUpperCase() + ".\nBased on your medical history, " +
+                "We observe that you do not suffer from anything.\n" +
+                "Care4u is activated in case of an emergency. Synchronize with the nearest ambulances or car users who use Care4u.";
+
         textView.setText(msg);
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot querySnapshot) {
+                for (QueryDocumentSnapshot snap : querySnapshot) {
+                    Log.d(TAG, snap.getId() + " => " + snap.getData());
+                    List<HashMap<String, Object>> diseasesList = (List<HashMap<String, Object>>) snap.getData().get("diseases");
+                    for (int i = 0; i < (diseasesList != null ? diseasesList.size() : 0); i++) {
+                        HashMap<String, Object> diseaseVar = diseasesList.get(i);
+                        String name = (String) diseaseVar.get("name");
+                        Boolean enable = (Boolean) diseaseVar.get("enable");
+                        if(enable) {
+                            diseasesNames.add(name);
+
+                            StringBuilder csvBuilder = new StringBuilder();
+                            for(String city : diseasesNames){
+                                csvBuilder.append(city);
+                                csvBuilder.append(",");
+                            }
+                            String csv = csvBuilder.toString();
+                            csv = csv.substring(0, csv.length() - ",".length());
+                            String msg = "Probability: "+ response.toUpperCase() + ".\nBased on your medical history, " +
+                                    "we observe that he suffers from " + csv + ".\nWe recommend NOT TO CONSUME THIS/THESE PRODUCT/S, or consume it/them under its responsibility.\n" +
+                                    "Care4u is activated in case of an emergency. Synchronize with the nearest ambulances or car users who use Care4u.";
+                            textView.setText(msg);
+                        }
+
+                    }
+                }
+            }
+        });
+        query.get().addOnCanceledListener(new OnCanceledListener() {
+            @Override
+            public void onCanceled() {
+                String msg = "Probability: "+ response.toUpperCase() + ".\nBased on your medical history, " +
+                        "We observe that you do not suffer from anything.\n" +
+                        "Care4u is activated in case of an emergency. Synchronize with the nearest ambulances or car users who use Care4u.";
+
+                textView.setText(msg);
+            }
+        });
     }
 }

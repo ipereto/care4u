@@ -4,6 +4,7 @@ public class Disease {
 
     private String name;
     private String description;
+    private boolean enable;
 
     public String getName() {
         return name;
@@ -19,5 +20,13 @@ public class Disease {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }
