@@ -3,62 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Switch
-            android:id="@+id/switch2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/cholesterol" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <Switch
-            android:id="@+id/switch3"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/diabetes" />
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/cholesterol" />
 
-        <Switch
-            android:id="@+id/switch4"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/gastritis" />
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/diabetes" />
 
-        <Switch
-            android:id="@+id/switch5"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/irritable_bowel_syndrome_ibs" />
-        <Switch
-            android:id="@+id/switch6"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/lactose_intolerant" />
-        <Switch
-            android:id="@+id/switch7"
-            android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:text="@string/hypertension" />
-    </LinearLayout>
+            <Switch
+                android:id="@+id/switch4"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/gastritis" />
 
-</ScrollView>
+            <Switch
+                android:id="@+id/switch5"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/irritable_bowel_syndrome_ibs" />
+
+            <Switch
+                android:id="@+id/switch6"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/lactose_intolerant" />
+
+            <Switch
+                android:id="@+id/switch7"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/hypertension" />
+        </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
     android:layout_width="wrap_content"

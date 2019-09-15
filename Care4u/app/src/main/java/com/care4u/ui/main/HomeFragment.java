@@ -106,6 +106,7 @@ public class HomeFragment extends Fragment {
     }
 
     public void sendPost(byte[] imageBytes) {
+        textView.setText("");
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), imageBytes);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", "image.jpg", requestFile);
         Call<ProductResponse> call = apiService.saveImage(body);
