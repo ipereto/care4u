@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#73C2CF"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -20,11 +21,28 @@
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
         android:enabled="true"
-        android:text="@string/action_sign_in"
         android:fontFamily="sans-serif-medium"
+        android:text="@string/action_sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="377dp"
+        android:layout_height="510dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="163dp"
+        android:contentDescription="@string/default_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/magnifier_food" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -48,33 +66,16 @@
         android:layout_width="match_parent"
         android:layout_height="198dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:fontFamily="sans-serif-medium"
         app:autoSizeTextType="uniform"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/container"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="242dp"
-        android:layout_height="248dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="163dp"
-        android:contentDescription="@string/default_img"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/iconfinder_medical_icon_5_1290985" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
