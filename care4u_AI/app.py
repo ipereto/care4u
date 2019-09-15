@@ -9,7 +9,7 @@ def predict():
         file_img = request.files['file']
         img_bytes = file_img.read()
         return jsonify({'classes': Predict().predict(img_bytes)})
-    return 404, 'not invoke endpoint'
+    return 401, 'Unauthorized'
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

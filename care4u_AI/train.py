@@ -1,6 +1,6 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
+'''import numpy as np
+#import matplotlib.pyplot as plt
+#import pandas as pd
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
@@ -14,10 +14,10 @@ import warnings
 warnings.filterwarnings("ignore")
 
 np.random.seed(45)
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")'''
 
 #model = torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
-model = models.resnet50(pretrained=True)
+'''model = models.resnet50(pretrained=True)
 
 def load_split_train_test(datadir, valid_size = .2):
     train_transforms = transforms.Compose([transforms.Resize(224),
@@ -109,9 +109,9 @@ plt.plot(train_losses, label='Training loss')
 plt.plot(test_losses, label='Validation loss')
 plt.legend(frameon=False)
 plt.show()
+'''
 
-
-
+'''
 classes = ['chips', 'coke', 'eggs']
 test_transforms = transforms.Compose([transforms.Resize(224),
                                          transforms.CenterCrop(224),
@@ -133,9 +133,7 @@ with open("chips2.jpg", 'rb') as f:
     outputs = model.forward(tensor)
     _, y_hat = outputs.max(1)
     print(classes[y_hat.item()])
-
-
-
+'''
 '''
 transform = transforms.Compose([transforms.Resize(256),
                                transforms.CenterCrop(224),

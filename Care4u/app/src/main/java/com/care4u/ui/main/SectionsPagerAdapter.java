@@ -10,10 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.care4u.R;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
@@ -27,12 +23,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a HomeFragment (defined as a static inner class below).
         if(position == 1) {
-            return new MedicalFragment();
+            return MedicalFragment.newInstance();
         }
-        return HomeFragment.newInstance(position + 1);
+        return HomeFragment.newInstance();
     }
 
     @Nullable
@@ -43,7 +37,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
         return 2;
     }
 }
