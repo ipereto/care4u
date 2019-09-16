@@ -26,6 +26,20 @@ Next for CARE4U is adding the function to detect decomposed food in order to pre
 1. App was built with [android](https://developer.android.com/studio/).
 2. CNN was built with [pytorch](https://pytorch.org/).
 3. Datasets were built with images found in [Google images](https://www.google.com.co/imghp?hl=en).
+4. [AWS](https://aws.amazon.com/?nc1=h_ls) where is stored the Pytorch project with the endpoint available to consume through the app
 
 ## How to install
 - FLASK_ENV=development FLASK_APP=app.py flask run
+
+## How to install care4u.apk
+1. Download care4u.apk
+2. Disable play protect for a while.
+- To disable Google Play Protect Open "Play Store" application.
+- Tap on Menu button.
+- Select "Play Protect".
+- Tap gear icon.
+- Disable the options "Scan device for security threats".
+2. Open care4u.apk in your phone.
+3. Install the app.
+4. Enable play protect again.
+5. Enjoy it!
