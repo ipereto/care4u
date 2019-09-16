@@ -194,12 +194,12 @@ public class HomeFragment extends Fragment {
                             StringBuilder csvBuilder = new StringBuilder();
                             for(String city : diseasesNames){
                                 csvBuilder.append(city);
-                                csvBuilder.append(",");
+                                csvBuilder.append(", ");
                             }
                             String csv = csvBuilder.toString();
-                            csv = csv.substring(0, csv.length() - ",".length());
+                            csv = csv.substring(0, csv.length() - ", ".length());
                             String msg = "Probability: "+ response.toUpperCase() + ".\nBased on your medical history, " +
-                                    "we observe that he suffers from " + csv + ".\nWe recommend NOT TO CONSUME THIS/THESE PRODUCT/S, or consume it/them under its responsibility.\n" +
+                                    "we observe that you suffer " + csv + ".\nWe recommend DO NOT CONSUME THIS/THESE PRODUCT/S, or consume it/them under your responsibility.\n" +
                                     "Care4u is activated in case of an emergency. Synchronize with the nearest ambulances or car users who use Care4u.";
                             textView.setText(msg);
                         }

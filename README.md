@@ -23,7 +23,7 @@ We were able to sync our talents in order to finish the project in the establish
 Next for CARE4U is adding the function to detect decomposed food in order to prevent the user to eat it and the function to integrate with real clinical historial.
 
 ## Built With
-1. App was built with [ionic framework](https://ionicframework.com/).
+1. App was built with [android](https://developer.android.com/studio/).
 2. CNN was built with [pytorch](https://pytorch.org/).
 3. Datasets were built with images found in [Google images](https://www.google.com.co/imghp?hl=en).
 

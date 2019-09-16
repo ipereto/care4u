@@ -53,11 +53,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
 
             @Override
             public void onError(FacebookException error) {
                 Log.d(TAG, "facebook:onError", error);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }
