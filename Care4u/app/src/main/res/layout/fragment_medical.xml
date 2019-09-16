@@ -14,47 +14,47 @@
          <Switch
             android:id="@+id/cholesterol"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/cholesterol" />
 
         <Switch
             android:id="@+id/diabetes"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/diabetes" />
 
         <Switch
             android:id="@+id/gastritis"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/gastritis" />
 
         <Switch
             android:id="@+id/irritable"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/irritable_bowel_syndrome_ibs" />
         <Switch
             android:id="@+id/lactose"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/lactose_intolerant" />
         <Switch
             android:id="@+id/hypertension"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/hypertension" />
     </LinearLayout>
 
