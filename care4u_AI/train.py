@@ -1,6 +1,6 @@
-'''import numpy as np
-#import matplotlib.pyplot as plt
-#import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
@@ -14,10 +14,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 np.random.seed(45)
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")'''
-
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 #model = torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
-'''model = models.resnet50(pretrained=True)
+model = models.resnet50(pretrained=True)
 
 def load_split_train_test(datadir, valid_size = .2):
     train_transforms = transforms.Compose([transforms.Resize(224),
@@ -133,35 +132,3 @@ with open("chips2.jpg", 'rb') as f:
     outputs = model.forward(tensor)
     _, y_hat = outputs.max(1)
     print(classes[y_hat.item()])
-'''
-'''
-transform = transforms.Compose([transforms.Resize(256),
-                               transforms.CenterCrop(224),
-                               #transforms.RandomRotation(45), 
-                               #transforms.RandomCrop(256),
-                               #transforms.RandomHorizontalFlip(),
-                               #transforms.RandomResizedCrop(224),
-                               transforms.ToTensor(),
-                               transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                                    std=[0.229, 0.224, 0.225])])
-
-snack_food = datasets.ImageFolder('root', transform)
-snack_food_dataset_loader = DataLoader(snack_food, batch_size=10, shuffle=True,  num_workers=5)
-
-n_class = 3
-
-# model
-model = torch.hub.load('pytorch/vision', 'resnet18', pretrained=True)
-num_features = model.fc.in_features
-model.fc = nn.Linear(num_features, n_class)
-
-#print([name, name2 in for name, child in model.named_children() for name2, params in child.named_parameters()])
-print(model)
-
-
-model.eval()
-
-#with torch.no_grad():
-#    output = model(input_batch)
-'''
-
